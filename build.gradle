@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version "8.3.6"
+}
+
+group = 'ru.pozitp'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.jline:jline:3.29.0'
+}
+
+tasks.jar {
+    manifest.attributes["Main-Class"] = "ru.pozitp.Main"
+}
+
+test {
+    useJUnitPlatform()
+}
